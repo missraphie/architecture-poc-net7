@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Xacte.Patient.Business.Tests": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:64343;http://localhost:64344"
+    }
+  }
+}

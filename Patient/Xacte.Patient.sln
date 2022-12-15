@@ -1,0 +1,82 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{BA77E46A-0652-4931-B2DB-895BB2346022}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacte.Patient.Api", "src\Xacte.Patient.Api\Xacte.Patient.Api.csproj", "{657ACF4A-954C-4EBB-A223-55D7D0E15684}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacte.Patient.Business", "src\Xacte.Patient.Business\Xacte.Patient.Business.csproj", "{0B21C332-D676-4957-A906-8A3D1A574A33}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacte.Patient.Data", "src\Xacte.Patient.Data\Xacte.Patient.Data.csproj", "{F89A9E41-CAF1-4C14-80BA-41BAA3686C8E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacte.Patient.Dto", "src\Xacte.Patient.Dto\Xacte.Patient.Dto.csproj", "{DF574FC6-BB7F-4C8F-BB41-AD7D5B2BCBF2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solution Items", "{2910FB04-6C3F-4009-8278-7C8CC1D3F194}"
+	ProjectSection(SolutionItems) = preProject
+		..\.editorconfig = ..\.editorconfig
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacte.Patient.Business.Tests", "tests\Xacte.Patient.Business.Tests\Xacte.Patient.Business.Tests.csproj", "{407A9B16-97F2-45A5-A608-DDD0DA41F05F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacte.Patient.Data.Tests", "tests\Xacte.Patient.Data.Tests\Xacte.Patient.Data.Tests.csproj", "{937F2D01-D458-4D5F-A0D4-8C30F10C7E12}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{E5A5F103-F451-46C9-9CB0-B92DE5CEDAFD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacte.Common", "..\Common\src\Xacte.Common\Xacte.Common.csproj", "{7929B34A-E164-4DAF-B461-B05489F9E8AC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacte.Common.Logger", "..\Common\src\Xacte.Common.Logger\Xacte.Common.Logger.csproj", "{05066ABA-8AF9-4852-AD74-420A5D08D481}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{657ACF4A-954C-4EBB-A223-55D7D0E15684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{657ACF4A-954C-4EBB-A223-55D7D0E15684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{657ACF4A-954C-4EBB-A223-55D7D0E15684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{657ACF4A-954C-4EBB-A223-55D7D0E15684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B21C332-D676-4957-A906-8A3D1A574A33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B21C332-D676-4957-A906-8A3D1A574A33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B21C332-D676-4957-A906-8A3D1A574A33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B21C332-D676-4957-A906-8A3D1A574A33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F89A9E41-CAF1-4C14-80BA-41BAA3686C8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F89A9E41-CAF1-4C14-80BA-41BAA3686C8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F89A9E41-CAF1-4C14-80BA-41BAA3686C8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F89A9E41-CAF1-4C14-80BA-41BAA3686C8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF574FC6-BB7F-4C8F-BB41-AD7D5B2BCBF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF574FC6-BB7F-4C8F-BB41-AD7D5B2BCBF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF574FC6-BB7F-4C8F-BB41-AD7D5B2BCBF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF574FC6-BB7F-4C8F-BB41-AD7D5B2BCBF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{407A9B16-97F2-45A5-A608-DDD0DA41F05F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{407A9B16-97F2-45A5-A608-DDD0DA41F05F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{407A9B16-97F2-45A5-A608-DDD0DA41F05F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{407A9B16-97F2-45A5-A608-DDD0DA41F05F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{937F2D01-D458-4D5F-A0D4-8C30F10C7E12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{937F2D01-D458-4D5F-A0D4-8C30F10C7E12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{937F2D01-D458-4D5F-A0D4-8C30F10C7E12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{937F2D01-D458-4D5F-A0D4-8C30F10C7E12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7929B34A-E164-4DAF-B461-B05489F9E8AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7929B34A-E164-4DAF-B461-B05489F9E8AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7929B34A-E164-4DAF-B461-B05489F9E8AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7929B34A-E164-4DAF-B461-B05489F9E8AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05066ABA-8AF9-4852-AD74-420A5D08D481}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05066ABA-8AF9-4852-AD74-420A5D08D481}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05066ABA-8AF9-4852-AD74-420A5D08D481}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05066ABA-8AF9-4852-AD74-420A5D08D481}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{407A9B16-97F2-45A5-A608-DDD0DA41F05F} = {BA77E46A-0652-4931-B2DB-895BB2346022}
+		{937F2D01-D458-4D5F-A0D4-8C30F10C7E12} = {BA77E46A-0652-4931-B2DB-895BB2346022}
+		{7929B34A-E164-4DAF-B461-B05489F9E8AC} = {E5A5F103-F451-46C9-9CB0-B92DE5CEDAFD}
+		{05066ABA-8AF9-4852-AD74-420A5D08D481} = {E5A5F103-F451-46C9-9CB0-B92DE5CEDAFD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C57FCE5C-39E7-4614-9FE2-471039704845}
+	EndGlobalSection
+EndGlobal
