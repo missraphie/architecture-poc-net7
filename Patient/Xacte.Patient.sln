@@ -16,6 +16,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solution Items", "{2910FB04-6C3F-4009-8278-7C8CC1D3F194}"
 	ProjectSection(SolutionItems) = preProject
 		..\.editorconfig = ..\.editorconfig
+		..\.gitignore = ..\.gitignore
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacte.Patient.Business.Tests", "tests\Xacte.Patient.Business.Tests\Xacte.Patient.Business.Tests.csproj", "{407A9B16-97F2-45A5-A608-DDD0DA41F05F}"

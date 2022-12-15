@@ -31,6 +31,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacte.Common", "Common\src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacte.Common.Logger", "Common\src\Xacte.Common.Logger\Xacte.Common.Logger.csproj", "{1431B5D8-3029-4AF7-A149-B5C05EB0546E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateway", "ApiGateway", "{0BDE247D-2EF9-4A0C-AD78-C484F0A541B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xacte.ApiGateway", "ApiGateway\src\Xacte.ApiGateway\Xacte.ApiGateway.csproj", "{F72D01E8-4698-4693-92B5-F03E1256E962}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,10 @@ Global
 		{1431B5D8-3029-4AF7-A149-B5C05EB0546E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1431B5D8-3029-4AF7-A149-B5C05EB0546E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1431B5D8-3029-4AF7-A149-B5C05EB0546E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F72D01E8-4698-4693-92B5-F03E1256E962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F72D01E8-4698-4693-92B5-F03E1256E962}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F72D01E8-4698-4693-92B5-F03E1256E962}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F72D01E8-4698-4693-92B5-F03E1256E962}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +91,7 @@ Global
 		{C75C382A-FE14-44A5-9903-763E0D345468} = {E9508E4A-0B2A-4F55-A586-2E746FC17411}
 		{90196A31-E32F-4F72-9C54-462621160B47} = {72B70D7A-4D45-4633-B4AA-FA458B53EE9B}
 		{1431B5D8-3029-4AF7-A149-B5C05EB0546E} = {72B70D7A-4D45-4633-B4AA-FA458B53EE9B}
+		{F72D01E8-4698-4693-92B5-F03E1256E962} = {0BDE247D-2EF9-4A0C-AD78-C484F0A541B3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {655E5801-299F-4F5A-B2DD-D60674D0B545}
