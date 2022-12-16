@@ -1,15 +1,10 @@
 {
   "GlobalConfiguration": {
-    "BaseUrl": "https://gateway.xacte.local",
-    "RequestIdKey": "Xacte-Oc-Request-Id"
+    "BaseUrl": "https://api.xacte.local"
   },
   "Routes": [
     {
       "Key": "PATIENTS",
-      "UpstreamPathTemplate": "/gateway/patients",
-      "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/api/patients",
-      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "patient.xacte.local",
@@ -19,10 +14,6 @@
     },
     {
       "Key": "PATIENT",
-      "UpstreamPathTemplate": "/gateway/patients/{id}",
-      "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/api/patients/{id}",
-      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "patient.xacte.local",
@@ -32,26 +23,12 @@
     },
     {
       "Key": "PATIENT_BILLING",
-      "UpstreamPathTemplate": "/gateway/patients/{id}/billings",
-      "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/api/patients/{id}/billings",
-      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "patient.xacte.local",
           "Port": 443
         }
       ]
-    }
-  ],
-  "Aggregates": [
-    {
-      "RouteKeys": [
-        "PATIENT",
-        "PATIENT_BILLING"
-      ],
-      "UpstreamPathTemplate": "/aggregate/patient",
-      "Aggregator": "PatientAggregator"
     }
   ]
 }

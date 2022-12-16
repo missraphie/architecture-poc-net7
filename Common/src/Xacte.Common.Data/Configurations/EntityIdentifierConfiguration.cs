@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Xacte.Common.Data.Entities;
 
-namespace Xacte.Common.Data
+namespace Xacte.Common.Data.Configurations
 {
     public abstract class EntityIdentifierConfiguration<TBase> : IEntityTypeConfiguration<TBase> where TBase : EntityIdentifier
     {

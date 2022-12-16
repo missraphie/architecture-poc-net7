@@ -1,12 +1,12 @@
 {
   "profiles": {
-    "Xacte.Common": {
+    "Xacte.Common.Hosting.Api": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:64346;http://localhost:64351"
+      "applicationUrl": "https://localhost:58880;http://localhost:58881"
     }
   }
 }

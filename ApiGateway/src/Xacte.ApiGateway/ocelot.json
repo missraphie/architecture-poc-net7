@@ -1,47 +1,55 @@
 {
   "GlobalConfiguration": {
     "BaseUrl": "https://localhost:5003",
-    "RequestIdKey": "Xacte-Oc-Request-Id"
+    "RequestIdKey": "Xacte-Correlation-Id"
   },
   "Routes": [
     {
       "Key": "PATIENTS",
-      "UpstreamPathTemplate": "/gateway/patients",
+      "UpstreamPathTemplate": "/patients",
       "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/api/patients",
+      "DownstreamPathTemplate": "/v1/patients",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "patient.xacte.local",
-          "Port": 443
+          "Host": "localhost",
+          "Port": 7222
         }
       ]
     },
     {
       "Key": "PATIENT",
-      "UpstreamPathTemplate": "/gateway/patients/{id}",
+      "UpstreamPathTemplate": "/patients/{id}",
       "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/api/patients/{id}",
+      "DownstreamPathTemplate": "/v1/patients/{id}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "patient.xacte.local",
-          "Port": 443
+          "Host": "localhost",
+          "Port": 7222
         }
-      ]
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 15,
+        "Region": "cache_patient"
+      }
     },
     {
       "Key": "PATIENT_BILLING",
-      "UpstreamPathTemplate": "/gateway/patients/{id}/billings",
+      "UpstreamPathTemplate": "/patients/{id}/billings",
       "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/api/patients/{id}/billings",
+      "DownstreamPathTemplate": "/v1/patients/{id}/billings",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "patient.xacte.local",
-          "Port": 443
+          "Host": "localhost",
+          "Port": 7222
         }
-      ]
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 15,
+        "Region": "cache_patient"
+      }
     }
   ],
   "Aggregates": [
@@ -50,7 +58,7 @@
         "PATIENT",
         "PATIENT_BILLING"
       ],
-      "UpstreamPathTemplate": "/aggregate/patient",
+      "UpstreamPathTemplate": "/aggregate/patients/{id}",
       "Aggregator": "PatientAggregator"
     }
   ]

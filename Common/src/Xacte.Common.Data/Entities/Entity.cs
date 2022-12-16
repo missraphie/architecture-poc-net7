@@ -1,4 +1,4 @@
-﻿namespace Xacte.Common.Data
+﻿namespace Xacte.Common.Data.Entities
 {
     public abstract class Entity : EntityIdentifier
     {

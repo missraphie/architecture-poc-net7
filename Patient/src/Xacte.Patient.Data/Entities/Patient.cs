@@ -1,4 +1,4 @@
-﻿using Xacte.Common.Data;
+﻿using Xacte.Common.Data.Entities;
 
 namespace Xacte.Patient.Data.Entities
 {

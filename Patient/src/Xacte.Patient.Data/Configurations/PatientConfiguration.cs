@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Xacte.Common.Data;
+using Xacte.Common.Data.Configurations;
 
 namespace Xacte.Patient.Data.Configurations
 {

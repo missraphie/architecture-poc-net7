@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace Xacte.Common.Data
+namespace Xacte.Common.Data.Contexts
 {
     public abstract class XacteDbContext : DbContext
     {

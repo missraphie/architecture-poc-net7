@@ -1,23 +1,27 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>04955340-0309-400a-a96a-08a9ff92526f</UserSecretsId>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>04955340-0309-400a-a96a-08a9ff92526f</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.1" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Xacte.Patient.Business\Xacte.Patient.Business.csproj" />
-    <ProjectReference Include="..\Xacte.Patient.Data\Xacte.Patient.Data.csproj" />
-    <ProjectReference Include="..\Xacte.Patient.Dto\Xacte.Patient.Dto.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\Common\src\Xacte.Common.Hosting.Api\Xacte.Common.Hosting.Api.csproj" />
+		<ProjectReference Include="..\Xacte.Patient.Business\Xacte.Patient.Business.csproj">
+		  <TreatAsUsed>true</TreatAsUsed>
+		</ProjectReference>
+		<ProjectReference Include="..\Xacte.Patient.Data\Xacte.Patient.Data.csproj" />
+		<ProjectReference Include="..\Xacte.Patient.Dto\Xacte.Patient.Dto.csproj">
+		  <TreatAsUsed>true</TreatAsUsed>
+		</ProjectReference>
+	</ItemGroup>
 
 </Project>
