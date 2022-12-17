@@ -37,11 +37,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacte.ApiGateway", "ApiGate
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacte.Common.Hosting.Api", "Common\src\Xacte.Common.Hosting.Api\Xacte.Common.Hosting.Api.csproj", "{37236BD9-949C-4ACF-A3C1-C3A8B2B1D881}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xacte.Common.Services", "Common\src\Xacte.Common.Services\Xacte.Common.Services.csproj", "{89697738-CA6C-4790-BBA7-06E13F7E0ADF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacte.Common.Services", "Common\src\Xacte.Common.Services\Xacte.Common.Services.csproj", "{89697738-CA6C-4790-BBA7-06E13F7E0ADF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xacte.Common.Hosting.Wasm", "Common\src\Xacte.Common.Hosting.Wasm\Xacte.Common.Hosting.Wasm.csproj", "{159C0B81-8CAC-4307-A1E1-40A36A02E7BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacte.Common.Hosting.Wasm", "Common\src\Xacte.Common.Hosting.Wasm\Xacte.Common.Hosting.Wasm.csproj", "{159C0B81-8CAC-4307-A1E1-40A36A02E7BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xacte.Common.Data", "Common\src\Xacte.Common.Data\Xacte.Common.Data.csproj", "{6CFB30C0-2894-49ED-BFC4-7618CA772477}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacte.Common.Data", "Common\src\Xacte.Common.Data\Xacte.Common.Data.csproj", "{6CFB30C0-2894-49ED-BFC4-7618CA772477}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

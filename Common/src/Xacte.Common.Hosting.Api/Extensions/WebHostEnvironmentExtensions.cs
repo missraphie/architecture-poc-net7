@@ -4,7 +4,7 @@ using Microsoft.Extensions.Hosting;
 namespace Xacte.Common.Hosting.Api.Extensions
 {
     /// <summary>
-    /// WebApplication extension methods
+    /// WebHostEnvironment extension methods
     /// </summary>
     public static class WebHostEnvironmentExtensions
     {
