@@ -1,13 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Xacte.Common.Data.Contexts;
+using Xacte.Common.Services;
 using Xacte.Patient.Data.Configurations;
 
 namespace Xacte.Patient.Data.Contexts
 {
     public sealed class PatientDbContext : XacteDbContext
     {
-        public PatientDbContext(DbContextOptions options)
-            : base(options)
+        public PatientDbContext(DbContextOptions options, ICurrentUserService currentUserService)
+            : base(options, currentUserService)
         {
         }
 

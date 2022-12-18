@@ -1,4 +1,9 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Mime;
+using Xacte.Patient.Business.Services.Interfaces;
+using Xacte.Patient.Dto.Api.Patient;
+using Xacte.Patient.Dto.Business;
 
 namespace Xacte.Patient.Api.Controllers.V1
 {
@@ -10,14 +15,18 @@ namespace Xacte.Patient.Api.Controllers.V1
     [Route("v{version:apiVersion}/[controller]")]
     public sealed class PatientsController : ControllerBase
     {
+        private readonly IMapper _mapper;
+        private readonly IPatientService _patientService;
         private readonly ILogger<PatientsController> _logger;
 
         /// <summary>
         /// Patients controller class.
         /// </summary>
         /// <param name="logger"></param>
-        public PatientsController(ILogger<PatientsController> logger)
+        public PatientsController(IMapper mapper, IPatientService patientService, ILogger<PatientsController> logger)
         {
+            _mapper = mapper;
+            _patientService = patientService;
             _logger = logger;
         }
 
@@ -26,10 +35,11 @@ namespace Xacte.Patient.Api.Controllers.V1
         /// </summary>
         /// <returns>Demo string</returns>
         [HttpGet]
-        [Produces("application/json")]
-        [ProducesResponseType(typeof(string), 200)]
-        [ProducesResponseType(404)]
-        public async Task<IActionResult> Get()
+        [Consumes(MediaTypeNames.Application.Json)]
+        [Produces(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult Get()
         {
             return Ok("Ok V1");
         }
@@ -38,13 +48,15 @@ namespace Xacte.Patient.Api.Controllers.V1
         /// Gets a demo string with id
         /// </summary>
         /// <returns>Demo string</returns>
-        [HttpGet("{id:int}")]
-        [Produces("application/json")]
-        [ProducesResponseType(typeof(string), 200)]
-        [ProducesResponseType(404)]
-        public async Task<IActionResult> Get([FromRoute] int id)
+        [HttpGet("{guid:guid}")]
+        [Consumes(MediaTypeNames.Application.Json)]
+        [Produces(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<GetPatientResponse>> Get([FromRoute] Guid guid)
         {
-            return Ok($"Ok V1 {id}");
+            var request = new GetPatientRequest(guid);
+            return Ok(await _patientService.GetPatientAsync(_mapper.Map<GetPatientRequestModel>(request)));
         }
 
         /// <summary>
@@ -52,10 +64,11 @@ namespace Xacte.Patient.Api.Controllers.V1
         /// </summary>
         /// <returns>Demo string</returns>
         [HttpGet("{id:int}/billings")]
-        [Produces("application/json")]
-        [ProducesResponseType(typeof(string), 200)]
-        [ProducesResponseType(404)]
-        public async Task<IActionResult> GetBillings([FromRoute] int id)
+        [Consumes(MediaTypeNames.Application.Json)]
+        [Produces(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult GetBillings([FromRoute] int id)
         {
             return Ok($"Ok V1 Billing id:{id}");
         }

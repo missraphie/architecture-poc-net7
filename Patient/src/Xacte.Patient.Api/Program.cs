@@ -2,7 +2,11 @@ using Microsoft.EntityFrameworkCore;
 using NLog;
 using NLog.Web;
 using Xacte.Common.Hosting.Api.Extensions;
+using Xacte.Patient.Business.Services;
+using Xacte.Patient.Business.Services.Interfaces;
 using Xacte.Patient.Data.Contexts;
+using Xacte.Patient.Data.Repositories;
+using Xacte.Patient.Data.Repositories.Interfaces;
 
 // NLog: Setup logger
 var logger = LogManager.Setup()
@@ -16,6 +20,7 @@ try
     // Add services to the container.
     builder.Services.AddControllers()
         .AddXacteJsonOptions();
+    builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
     builder.Services.AddHealthChecks();
 
     builder.Services.AddXacteCoreServices();
@@ -25,6 +30,12 @@ try
     builder.Services.AddXacteSwagger(typeof(Program), title: "Patient", description: "Patient management API");
 
     builder.Services.AddDbContext<PatientDbContext>(options => options.UseSqlServer("name=ConnectionStrings:DefaultConnection"));
+
+    // DI configurations - business layer
+    builder.Services.AddScoped<IPatientService, PatientService>();
+
+    // DI configurations - data layer
+    builder.Services.AddScoped<IPatientRepository, PatientRepository>();
 
     var app = builder.Build();
 

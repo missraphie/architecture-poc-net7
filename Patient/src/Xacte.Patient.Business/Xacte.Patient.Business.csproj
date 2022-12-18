@@ -8,11 +8,15 @@
 
   <ItemGroup>
     <Folder Include="Extensions\" />
-    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Xacte.Patient.Data\Xacte.Patient.Data.csproj" />
+    <ProjectReference Include="..\Xacte.Patient.Dto\Xacte.Patient.Dto.csproj" />
   </ItemGroup>
 
 </Project>
