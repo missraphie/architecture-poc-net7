@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Xacte.Patient.Data.Contexts;
 using Xacte.Patient.Data.Repositories.Interfaces;
 
@@ -13,30 +14,47 @@ namespace Xacte.Patient.Data.Repositories
             _context = context;
         }
 
-        public Task CreateAsync(Entities.Patient entity)
+        public Task<bool> AnyAsync(Guid guid)
         {
-            _context.Patients.Add(entity);
-            return _context.SaveChangesAsync();
+            return _context.Patients
+                    .AsNoTracking()
+                    .AnyAsync(a => a.Guid == guid);
+        }
+
+        public async Task<Entities.Patient> CreateAsync(Entities.Patient entity)
+        {
+            entity.Status = Entities.Status.Active;
+            EntityEntry<Entities.Patient> newEntity = await _context.Patients.AddAsync(entity);
+            await _context.SaveChangesAsync();
+            return newEntity.Entity;
         }
 
         public Task DeleteAsync(Guid guid)
         {
-            return _context.Patients.Where(w => w.Guid == guid).ExecuteDeleteAsync();
+            return _context.Patients
+                .Where(w => w.Guid == guid)
+                .ExecuteDeleteAsync();
         }
 
         public Task<List<Entities.Patient>> GetAsync()
         {
-            return _context.Patients.AsNoTracking().ToListAsync();
+            return _context.Patients
+                .AsNoTracking()
+                .ToListAsync();
         }
 
         public Task<Entities.Patient> GetAsync(Guid guid)
         {
-            return _context.Patients.FirstAsync(f => f.Guid == guid);
+            return _context.Patients
+                .AsNoTrackingWithIdentityResolution()
+                .FirstAsync(f => f.Guid == guid);
         }
 
         public Task<Entities.Patient> GetAsync(int id)
         {
-            return _context.Patients.FirstAsync(f => f.Id == id);
+            return _context.Patients
+                .AsNoTrackingWithIdentityResolution()
+                .FirstAsync(f => f.Id == id);
         }
 
         public Task UpdateAsync(Entities.Patient entity)

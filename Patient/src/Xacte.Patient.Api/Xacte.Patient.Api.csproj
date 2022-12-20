@@ -10,6 +10,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
 		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
 	</ItemGroup>
@@ -17,11 +21,11 @@
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\Common\src\Xacte.Common.Hosting.Api\Xacte.Common.Hosting.Api.csproj" />
 		<ProjectReference Include="..\Xacte.Patient.Business\Xacte.Patient.Business.csproj">
-		  <TreatAsUsed>true</TreatAsUsed>
+			<TreatAsUsed>true</TreatAsUsed>
 		</ProjectReference>
 		<ProjectReference Include="..\Xacte.Patient.Data\Xacte.Patient.Data.csproj" />
 		<ProjectReference Include="..\Xacte.Patient.Dto\Xacte.Patient.Dto.csproj">
-		  <TreatAsUsed>true</TreatAsUsed>
+			<TreatAsUsed>true</TreatAsUsed>
 		</ProjectReference>
 	</ItemGroup>
 

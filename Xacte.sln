@@ -45,11 +45,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacte.Common.Data", "Common
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{BC747292-9479-4B3D-9070-607E8B6D1B20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xacte.Web.Server", "Web\src\Xacte.Web\Server\Xacte.Web.Server.csproj", "{2355BF3A-D8C0-40F0-9436-6E2A431C9056}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacte.Web.Server", "Web\src\Xacte.Web\Server\Xacte.Web.Server.csproj", "{2355BF3A-D8C0-40F0-9436-6E2A431C9056}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xacte.Web.Client", "Web\src\Xacte.Web\Client\Xacte.Web.Client.csproj", "{0A8A5A82-B25B-427F-9D75-108AADD6B818}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacte.Web.Client", "Web\src\Xacte.Web\Client\Xacte.Web.Client.csproj", "{0A8A5A82-B25B-427F-9D75-108AADD6B818}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xacte.Web.Shared", "Web\src\Xacte.Web\Shared\Xacte.Web.Shared.csproj", "{3A71A424-F7ED-405F-9998-296427DFE613}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacte.Web.Shared", "Web\src\Xacte.Web\Shared\Xacte.Web.Shared.csproj", "{3A71A424-F7ED-405F-9998-296427DFE613}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{5649C10B-DC0E-4A6A-8338-CE2D57462A40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

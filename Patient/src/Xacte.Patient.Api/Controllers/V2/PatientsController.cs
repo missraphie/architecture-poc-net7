@@ -1,60 +1,50 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Mime;
+using Xacte.Patient.Business.Services.Interfaces;
+using Xacte.Patient.Dto.Api.Patient;
+using Xacte.Patient.Dto.Business;
 
 namespace Xacte.Patient.Api.Controllers.V2
 {
+    /// <summary>
+    /// Patients controller API
+    /// </summary>
     [ApiController]
     [ApiVersion("2.0")]
     [Route("v{version:apiVersion}/[controller]")]
     public sealed class PatientsController : ControllerBase
     {
+        private readonly IMapper _mapper;
+        private readonly IPatientService _patientService;
         private readonly ILogger<PatientsController> _logger;
 
-        public PatientsController(ILogger<PatientsController> logger)
+        /// <summary>
+        /// Patients controller class.
+        /// </summary>
+        /// <param name="mapper"></param>
+        /// <param name="patientService"></param>
+        /// <param name="logger"></param>
+        public PatientsController(IMapper mapper, IPatientService patientService, ILogger<PatientsController> logger)
         {
+            _mapper = mapper;
+            _patientService = patientService;
             _logger = logger;
         }
 
         /// <summary>
-        /// Gets a demo string
-        /// </summary>
-        /// <returns>Demo string</returns>
-        [HttpGet]
-        [Consumes(MediaTypeNames.Application.Json)]
-        [Produces(MediaTypeNames.Application.Json)]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult> Get()
-        {
-            return Ok("Ok V2");
-        }
-
-        /// <summary>
         /// Gets a demo string with id
         /// </summary>
         /// <returns>Demo string</returns>
-        [HttpGet("{id:int}")]
+        [HttpGet("{guid:guid}")]
         [Consumes(MediaTypeNames.Application.Json)]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult> Get([FromRoute] int id)
+        public async Task<ActionResult> Get([FromRoute] Guid guid)
         {
-            return Ok($"Ok V2 id:{id}");
-        }
-
-        /// <summary>
-        /// Gets a demo string with id
-        /// </summary>
-        /// <returns>Demo string</returns>
-        [HttpGet("{id:int}/billings")]
-        [Consumes(MediaTypeNames.Application.Json)]
-        [Produces(MediaTypeNames.Application.Json)]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult> GetBillings([FromRoute] int id)
-        {
-            return Ok($"Ok V2 Billing id:{id}");
+            var request = new GetPatientRequest(guid);
+            return Ok(await _patientService.GetAsync(_mapper.Map<GetPatientRequestModel>(request)));
         }
     }
 }

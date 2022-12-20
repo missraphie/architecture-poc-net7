@@ -22,6 +22,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Xacte.Common.Services\Xacte.Common.Services.csproj" />
+	  <ProjectReference Include="..\Xacte.Common\Xacte.Common.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -19,4 +19,13 @@
     <ProjectReference Include="..\Xacte.Patient.Dto\Xacte.Patient.Dto.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Update="Exceptions\PatientException.fr-CA.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Exceptions\PatientException.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

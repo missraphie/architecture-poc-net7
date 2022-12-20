@@ -44,7 +44,7 @@ namespace Xacte.Common.Hosting.Api.Extensions
         /// <param name="services">The <see cref="IServiceCollection"/> to add services to.</param>
         /// <param name="options">Provides options to be used with <see cref="JsonSerializer"/>.</param>
         /// <returns>The <see cref="IServiceCollection"/> so that additional calls can be chained.</returns>
-        public static IServiceCollection AddXacteJsonSerializerOptions(this IServiceCollection services, Action<JsonSerializerOptions> options = null)
+        public static IServiceCollection AddXacteJsonSerializerOptions(this IServiceCollection services, Action<JsonSerializerOptions>? options = null)
         {
             services.AddSingleton(sp => new JsonSerializerOptions
             {
@@ -54,7 +54,7 @@ namespace Xacte.Common.Hosting.Api.Extensions
                 }
             });
 
-            if (options != null)
+            if (options is not null)
             {
                 services.Configure<JsonSerializerOptions>(cfg => options?.Invoke(cfg));
             }

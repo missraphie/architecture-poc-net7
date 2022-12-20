@@ -6,5 +6,13 @@ namespace Xacte.Patient.Data.Entities
     {
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
+        public Status Status { get; set; }
+    }
+
+    public enum Status
+    {
+        Active = 1,
+        Inactive = 100,
+        Deleted = 999
     }
 }

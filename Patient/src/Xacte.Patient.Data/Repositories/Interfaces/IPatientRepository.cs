@@ -2,7 +2,8 @@
 {
     public interface IPatientRepository
     {
-        Task CreateAsync(Entities.Patient entity);
+        Task<bool> AnyAsync(Guid guid);
+        Task<Entities.Patient> CreateAsync(Entities.Patient entity);
         Task DeleteAsync(Guid guid);
         Task<Entities.Patient> GetAsync(Guid guid);
         Task<Entities.Patient> GetAsync(int id);

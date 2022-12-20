@@ -1,8 +1,8 @@
-﻿using Xacte.Common.Response;
+﻿using Xacte.Common.Responses;
 
 namespace Xacte.Patient.Dto.Api.Patient
 {
-    public sealed class GetPatientsResponse : XacteResponse<IList<PatientResponse>>
+    public sealed class GetPatientsResponse : XacteResponse<PatientResponse>
     {
         public override IList<PatientResponse> Data { get; set; } = Array.Empty<PatientResponse>();
     }

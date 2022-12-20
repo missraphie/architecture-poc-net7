@@ -19,9 +19,11 @@ try
 
     // Add services to the container.
     builder.Services.AddControllers()
-        .AddXacteJsonOptions();
+        .AddXacteJsonOptions()
+        .AddXacteMvcActionFilters();
     builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
     builder.Services.AddHealthChecks();
+    builder.Services.AddLocalization();
 
     builder.Services.AddXacteCoreServices();
     builder.Services.AddXacteVersioning();
@@ -45,7 +47,9 @@ try
         app.UseDeveloperExceptionPage();
     }
 
+    app.UseXacteErrorHandling();
     app.UseXacteSwagger(app.Services);
+    app.UseXacteRequestLocalization();
     app.UseXacteResponseCompression();
 
     app.UseHttpsRedirection();

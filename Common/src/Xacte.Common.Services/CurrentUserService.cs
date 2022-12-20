@@ -48,7 +48,7 @@ namespace Xacte.Common.Services
             {
                 if (_httpContextAccessor.HttpContext?.Request.Headers.ContainsKey(TOKEN_HEADER) ?? false)
                 {
-                    return _httpContextAccessor.HttpContext.Request.Headers[TOKEN_HEADER].ToString().Replace("Bearer ", "");
+                    return _httpContextAccessor.HttpContext.Request.Headers[TOKEN_HEADER].ToString().Replace("Bearer ", string.Empty);
                 }
                 return string.Empty;
             }

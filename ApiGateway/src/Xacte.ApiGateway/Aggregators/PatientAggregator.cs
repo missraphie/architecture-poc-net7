@@ -18,9 +18,9 @@ namespace Xacte.ApiGateway.Aggregators
             {
                 if (response == null) continue;
 
-                var downStreamRouteKey = (response.Items["DownstreamRoute"] as DownstreamRoute).Key;
+                var downStreamRouteKey = (response.Items["DownstreamRoute"] as DownstreamRoute)!.Key;
                 var downstreamResponse = response.Items["DownstreamResponse"] as DownstreamResponse;
-                var downstreamResponseContent = ContentExtensions.ReadBytes(await downstreamResponse.Content.ReadAsByteArrayAsync(), downstreamResponse.Content.Headers.ContentEncoding);
+                var downstreamResponseContent = ContentExtensions.ReadBytes(await downstreamResponse!.Content.ReadAsByteArrayAsync(), downstreamResponse.Content.Headers.ContentEncoding);
 
                 if (downStreamRouteKey == "PATIENT")
                 {
