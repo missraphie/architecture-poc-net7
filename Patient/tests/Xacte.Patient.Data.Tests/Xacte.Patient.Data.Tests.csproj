@@ -22,4 +22,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Xacte.Patient.Data\Xacte.Patient.Data.csproj" />
+    <ProjectReference Include="..\Xacte.Patient.Business.Tests\Xacte.Patient.Business.Tests.csproj" />
+  </ItemGroup>
+
 </Project>

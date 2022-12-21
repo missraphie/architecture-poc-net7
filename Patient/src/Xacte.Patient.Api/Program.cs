@@ -31,7 +31,7 @@ try
     builder.Services.AddXacteJsonSerializerOptions();
     builder.Services.AddXacteSwagger(typeof(Program), title: "Patient", description: "Patient management API");
 
-    builder.Services.AddDbContext<PatientDbContext>(options => options.UseSqlServer("name=ConnectionStrings:DefaultConnection"));
+    builder.Services.AddDbContext<PatientContext>(options => options.UseSqlServer("name=ConnectionStrings:DefaultConnection"));
 
     // DI configurations - business layer
     builder.Services.AddScoped<IPatientService, PatientService>();

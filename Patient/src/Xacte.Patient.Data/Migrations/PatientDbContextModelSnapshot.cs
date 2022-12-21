@@ -10,7 +10,7 @@ using Xacte.Patient.Data.Contexts;
 
 namespace Xacte.Patient.Data.migrations
 {
-    [DbContext(typeof(PatientDbContext))]
+    [DbContext(typeof(PatientContext))]
     partial class PatientDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

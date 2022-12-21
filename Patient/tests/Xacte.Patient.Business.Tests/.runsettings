@@ -1,0 +1,33 @@
+﻿<RunSettings>
+	<DataCollectionRunSettings>
+		<DataCollectors>
+			<DataCollector friendlyName="Code Coverage" uri="datacollector://Microsoft/CodeCoverage/2.0" assemblyQualifiedName="Microsoft.VisualStudio.Coverage.DynamicCoverageDataCollector, Microsoft.VisualStudio.TraceCollector, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+				<Configuration>
+					<CodeCoverage>
+						<ModulePaths>
+							<Include>
+								<ModulePath>.*Xacte.Patient.Business.Tests\\bin\\Release\\net7.0\\Xacte.Patient.Business.dll</ModulePath>
+								<ModulePath>.*Xacte.Patient.Business.Tests\\bin\\Release\\net7.0\\Xacte.Patient.Data.dll</ModulePath>
+							</Include>
+						</ModulePaths>
+						<Functions>
+							<Exclude>
+								<Function>^Xacte\.Common\..*</Function>
+								<Function>^Xacte\.Patient\.Data\.Migrations\..*</Function>
+								<Function>^Xacte\.Patient\.Dto\..*</Function>
+							</Exclude>
+						</Functions>
+						<UseVerifiableInstrumentation>True</UseVerifiableInstrumentation>
+						<AllowLowIntegrityProcesses>True</AllowLowIntegrityProcesses>
+						<CollectFromChildProcesses>True</CollectFromChildProcesses>
+						<CollectAspDotNet>False</CollectAspDotNet>
+					</CodeCoverage>
+				</Configuration>
+			</DataCollector>
+		</DataCollectors>
+	</DataCollectionRunSettings>
+	<RunConfiguration>
+		<BatchSize>1000</BatchSize>
+		<ResultsDirectory>/TestResults</ResultsDirectory>
+	</RunConfiguration>
+</RunSettings>

@@ -5,9 +5,9 @@ using Xacte.Patient.Data.Configurations;
 
 namespace Xacte.Patient.Data.Contexts
 {
-    public sealed class PatientDbContext : XacteDbContext
+    public sealed class PatientContext : XacteDbContext
     {
-        public PatientDbContext(DbContextOptions options, ICurrentUserService currentUserService)
+        public PatientContext(DbContextOptions options, ICurrentUserService currentUserService)
             : base(options, currentUserService)
         {
         }

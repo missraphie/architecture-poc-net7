@@ -1,0 +1,8 @@
+﻿<FineCodeCoverage>
+	<Enabled>
+		True
+	</Enabled>
+	<Exclude>
+		[Xacte.Common*]*
+	</Exclude>
+</FineCodeCoverage>

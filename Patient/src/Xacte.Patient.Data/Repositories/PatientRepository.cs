@@ -7,9 +7,9 @@ namespace Xacte.Patient.Data.Repositories
 {
     public sealed class PatientRepository : IPatientRepository
     {
-        private readonly PatientDbContext _context;
+        private readonly PatientContext _context;
 
-        public PatientRepository(PatientDbContext context)
+        public PatientRepository(PatientContext context)
         {
             _context = context;
         }
