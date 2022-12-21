@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Xacte.Common.Resources;
 using Xacte.Common.Responses;
 
 namespace Xacte.Common.Hosting.Api.ActionFilters
@@ -58,7 +59,7 @@ namespace Xacte.Common.Hosting.Api.ActionFilters
         private static XacteModelValidationResponse CreateBaseMessage(Dictionary<string, List<string>> errorMessages)
         {
             var result = new XacteModelValidationResponse(errorMessages);
-            result.Meta.Messages.Add(new("One or more validation errors occured."));
+            result.Meta.Messages.Add(new(CommonResource.ValidationErrorOccured));
             return result;
         }
     }
