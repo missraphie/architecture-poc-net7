@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacte.Web.Client", "src\Xacte.Web\Client\Xacte.Web.Client.csproj", "{450EE5FF-15A7-43F7-8113-52CF494633F1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacte.Web.Server", "src\Xacte.Web\Server\Xacte.Web.Server.csproj", "{C94F6B19-C14F-4EBB-9275-6F84E57D3374}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solution Items", "{AB9FF242-8728-479E-86D4-3AC4BF5185C9}"
+	ProjectSection(SolutionItems) = preProject
+		..\.editorconfig = ..\.editorconfig
+		..\.gitignore = ..\.gitignore
+		..\Jenkinsfile = ..\Jenkinsfile
+		..\nuget.config = ..\nuget.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{450EE5FF-15A7-43F7-8113-52CF494633F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{450EE5FF-15A7-43F7-8113-52CF494633F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{450EE5FF-15A7-43F7-8113-52CF494633F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{450EE5FF-15A7-43F7-8113-52CF494633F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C94F6B19-C14F-4EBB-9275-6F84E57D3374}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C94F6B19-C14F-4EBB-9275-6F84E57D3374}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C94F6B19-C14F-4EBB-9275-6F84E57D3374}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C94F6B19-C14F-4EBB-9275-6F84E57D3374}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {78F75633-9676-487B-9BA0-CB0E47CBC3DF}
+	EndGlobalSection
+EndGlobal
