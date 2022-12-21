@@ -144,7 +144,7 @@ namespace Xacte.Common.Hosting.Api.Middlewares
                 Trace = xacteException.InnerException is null ? xacteException.StackTrace : xacteException.InnerException.StackTrace
             });
 
-            await response.WriteAsync(JsonSerializer.Serialize(responseObject, JsonSerializerUtil.GetJsonSerializerOptions())).ConfigureAwait(false);
+            await response.WriteAsync(JsonSerializer.Serialize(responseObject, JsonSerializerUtils.GetJsonSerializerOptions())).ConfigureAwait(false);
         }
     }
 }

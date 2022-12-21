@@ -5,15 +5,14 @@ using Xacte.Patient.Business.Exceptions;
 
 namespace Xacte.Patient.Api.Filters
 {
-    internal sealed class PatientExceptionFilterAttribute : ExceptionFilterAttribute
+    internal sealed class PatientApiExceptionFilterAttribute : ExceptionFilterAttribute
     {
         public override void OnException(ExceptionContext context)
         {
-            if (context.Exception is XacteException cbException)
+            if (context.Exception is XacteException xacteException)
             {
-                ExceptionHelper.ApplyHttpStatus(cbException);
+                ExceptionHelper.ApplyHttpStatus(xacteException);
             }
-
             context.ExceptionDispatchInfo!.Throw();
         }
     }
@@ -25,18 +24,18 @@ namespace Xacte.Patient.Api.Filters
             switch (exception)
             {
                 case PatientException ex:
-                    ApplyProfileServiceException(ex);
+                    ApplyPatientException(ex);
                     break;
             }
         }
 
-        private static void ApplyProfileServiceException(PatientException exception)
+        private static void ApplyPatientException(PatientException exception)
         {
             _ = Enum.TryParse<PatientException.Codes>(exception.Code.Code, out var code);
             switch (code)
             {
-                case PatientException.Codes.PatientInactive:
-                case PatientException.Codes.PatientInvalidFirstName:
+                case PatientException.Codes.PatientInactive 
+                    or PatientException.Codes.PatientInvalidFirstName:
                     exception.HttpStatusCode = HttpStatusCode.BadRequest;
                     break;
                 case PatientException.Codes.PatientNotFound:

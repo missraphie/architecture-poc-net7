@@ -15,7 +15,7 @@ namespace Xacte.Patient.Api.Controllers.V1
     [ApiController]
     [ApiVersion("1.0")]
     [Route("v{version:apiVersion}/[controller]")]
-    [PatientExceptionFilter]
+    [PatientApiExceptionFilter]
     public sealed class PatientsController : ControllerBase
     {
         private readonly IMapper _mapper;

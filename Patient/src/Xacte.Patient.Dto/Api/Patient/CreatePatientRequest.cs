@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Xacte.Patient.Dto.Resources;
 
 namespace Xacte.Patient.Dto.Api.Patient
 {

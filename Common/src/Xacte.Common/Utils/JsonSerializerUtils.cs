@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Xacte.Common.Utils
 {
-    public static class JsonSerializerUtil
+    public static class JsonSerializerUtils
     {
         public static JsonSerializerOptions GetJsonSerializerOptions()
         {

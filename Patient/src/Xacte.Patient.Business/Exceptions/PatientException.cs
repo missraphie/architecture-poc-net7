@@ -25,6 +25,12 @@ namespace Xacte.Patient.Business.Exceptions
             Severity = SeverityKind.Error;
         }
 
+        public PatientException(string message, Exception innerException)
+            : base(message, innerException)
+        {
+            Severity = SeverityKind.Error;
+        }
+
         public PatientException(Codes code, SeverityKind severity = SeverityKind.Error)
             : base(string.Empty)
         {
@@ -36,12 +42,6 @@ namespace Xacte.Patient.Business.Exceptions
             : base(string.Empty, innerException)
         {
             Code = new BusinessCode(code);
-            Severity = SeverityKind.Error;
-        }
-
-        public PatientException(string message, Exception innerException)
-            : base(message, innerException)
-        {
             Severity = SeverityKind.Error;
         }
 
