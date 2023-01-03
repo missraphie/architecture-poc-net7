@@ -2,11 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using NLog;
 using NLog.Web;
 using Xacte.Common.Hosting.Api.Extensions;
-using Xacte.Patient.Business.Services;
-using Xacte.Patient.Business.Services.Interfaces;
+using Xacte.Patient.Business;
+using Xacte.Patient.Data;
 using Xacte.Patient.Data.Contexts;
-using Xacte.Patient.Data.Repositories;
-using Xacte.Patient.Data.Repositories.Interfaces;
 
 // NLog: Setup logger
 var logger = LogManager.Setup()
@@ -18,26 +16,28 @@ try
     builder.UseXacteLogger();
 
     // Add services to the container.
-    builder.Services.AddControllers()
-        .AddXacteJsonOptions()
-        .AddXacteMvcActionFilters();
-    builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+    builder.Services
+        .AddControllers()
+            .AddXacteJsonOptions()
+            .AddXacteMvcActionFilters();
+
+    builder.Services
+        .AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies())
+        .AddLocalization()
+        .AddDbContext<PatientContext>(options => options.UseSqlServer("name=ConnectionStrings:DefaultConnection"));
     builder.Services.AddHealthChecks();
-    builder.Services.AddLocalization();
 
-    builder.Services.AddXacteCoreServices();
-    builder.Services.AddXacteVersioning();
-    builder.Services.AddXacteResponseCompression();
-    builder.Services.AddXacteJsonSerializerOptions();
-    builder.Services.AddXacteSwagger(typeof(Program), title: "Patient", description: "Patient management API");
+    builder.Services
+        .AddXacteCoreServices()
+        .AddXacteVersioning()
+        .AddXacteResponseCompression()
+        .AddXacteJsonSerializerOptions()
+        .AddXacteSwagger(typeof(Program), title: "Patient", description: "Patient management API");
 
-    builder.Services.AddDbContext<PatientContext>(options => options.UseSqlServer("name=ConnectionStrings:DefaultConnection"));
-
-    // DI configurations - business layer
-    builder.Services.AddScoped<IPatientService, PatientService>();
-
-    // DI configurations - data layer
-    builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+    // DI configurations - business layer + data layer
+    builder.Services
+        .AddBusinessServices()
+        .AddDataRepositories();
 
     var app = builder.Build();
 
