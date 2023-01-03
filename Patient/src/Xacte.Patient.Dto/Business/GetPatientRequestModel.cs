@@ -2,6 +2,6 @@
 {
     public sealed class GetPatientRequestModel
     {
-        public Guid Guid { get; set; }
+        public required Guid Guid { get; set; }
     }
 }
