@@ -21,6 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\..\..\.dockerignore" Link=".dockerignore" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\..\Common\src\Xacte.Common.Hosting.Api\Xacte.Common.Hosting.Api.csproj" />
     <ProjectReference Include="..\..\..\Common\src\Xacte.Common\Xacte.Common.csproj" />
   </ItemGroup>
