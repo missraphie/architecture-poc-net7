@@ -7,14 +7,15 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["Xacte.Patient.Api/Xacte.Patient.Api.csproj", "Xacte.Patient.Api/"]
-RUN dotnet restore "Xacte.Patient.Api/Xacte.Patient.Api.csproj"
+COPY ["nuget.config", "."]
+COPY ["Patient/src/Xacte.Patient.Api/Xacte.Patient.Api.csproj", "Patient/src/Xacte.Patient.Api/"]
+RUN dotnet restore "Patient/src/Xacte.Patient.Api/Xacte.Patient.Api.csproj"
 COPY . .
-WORKDIR "/src/Xacte.Patient.Api"
+WORKDIR "/src/Patient/src/Xacte.Patient.Api"
 RUN dotnet build "Xacte.Patient.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Xacte.Patient.Api.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "Xacte.Patient.Api.csproj" -c Release -o /app/publish --os linux --arch x64 /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app

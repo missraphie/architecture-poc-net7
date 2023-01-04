@@ -5,12 +5,15 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<UserSecretsId>04955340-0309-400a-a96a-08a9ff92526f</UserSecretsId>
-		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>..\..\..</DockerfileContext>
+		<DockerfileTag>par.petal.local/xacte/api/patient</DockerfileTag>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Include="..\..\..\.dockerignore" Link=".dockerignore" />
+		<None Include="..\..\..\.dockerignore" Link=".dockerignore" />
 	</ItemGroup>
 
 	<ItemGroup>
