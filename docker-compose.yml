@@ -1,0 +1,12 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
+
+version: '3.4'
+
+services:
+  xacteapigateway:
+    image: xacteapigateway
+    build:
+      context: .
+      dockerfile: ApiGateway/src/Xacte.ApiGateway/Dockerfile
+    ports:
+      - 5066:5066
