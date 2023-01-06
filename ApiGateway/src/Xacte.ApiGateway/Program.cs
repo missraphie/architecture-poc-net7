@@ -29,9 +29,9 @@ try
     // Add services to the container.
     builder.Services.AddControllers();
     builder.Services.AddOcelot(builder.Configuration)
-        .AddCacheManager(x =>
+        .AddCacheManager(settings =>
         {
-            x.WithDictionaryHandle();
+            settings.WithDictionaryHandle();
         })
         .AddPolly()
         .AddSingletonDefinedAggregator<PatientAggregator>();
@@ -48,8 +48,7 @@ try
     }
 
     app.UseXacteResponseCompression();
-
-    app.UseHttpsRedirection();
+    app.UseXacteSecureConnection();
 
     app.UseAuthorization();
 

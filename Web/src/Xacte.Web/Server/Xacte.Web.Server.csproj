@@ -21,6 +21,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\..\..\Common\src\Xacte.Common.Hosting.Api\Xacte.Common.Hosting.Api.csproj" />
 		<ProjectReference Include="..\Client\Xacte.Web.Client.csproj" />
 		<ProjectReference Include="..\Shared\Xacte.Web.Shared.csproj" />
 	</ItemGroup>

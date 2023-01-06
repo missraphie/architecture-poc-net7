@@ -50,17 +50,32 @@ namespace Xacte.Common.Hosting.Api.Extensions
         }
 
         /// <summary>
+        /// Adds secure connection protocols to <see cref="WebApplication"/>.
+        /// </summary>
+        /// <param name="builder">The <see cref="IApplicationBuilder"/> to add services to.</param>
+        /// <returns>The <see cref="IApplicationBuilder"/> so that additional calls can be chained.</returns>
+        public static IApplicationBuilder UseXacteSecureConnection(this WebApplication builder)
+        {
+            if (!builder.Environment.IsLocal())
+            {
+                builder.UseHttpsRedirection();
+                builder.UseHsts();
+            }
+            return builder;
+        }
+
+        /// <summary>
         /// Adds Swagger to <see cref="IApplicationBuilder"/>.
         /// </summary>
-        /// <param name="app">The <see cref="IApplicationBuilder"/> to add services to.</param>
+        /// <param name="builder">The <see cref="IApplicationBuilder"/> to add services to.</param>
         /// <param name="serviceProvider">The <see cref="IServiceProvider"/> to add services to.</param>
         /// <returns>The <see cref="IApplicationBuilder"/> so that additional calls can be chained.</returns>
-        public static IApplicationBuilder UseXacteSwagger(this IApplicationBuilder app, IServiceProvider serviceProvider)
+        public static IApplicationBuilder UseXacteSwagger(this IApplicationBuilder builder, IServiceProvider serviceProvider)
         {
             var apiVersionDescriptionProvider = serviceProvider.GetRequiredService<IApiVersionDescriptionProvider>();
 
-            app.UseSwagger();
-            app.UseSwaggerUI(options =>
+            builder.UseSwagger();
+            builder.UseSwaggerUI(options =>
             {
                 // build a swagger endpoint for each discovered API version
                 foreach (var groupName in apiVersionDescriptionProvider.ApiVersionDescriptions.Select(s => s.GroupName))
@@ -68,7 +83,7 @@ namespace Xacte.Common.Hosting.Api.Extensions
                     options.SwaggerEndpoint($"/swagger/{groupName}/swagger.json", groupName.ToUpperInvariant());
                 }
             });
-            return app;
+            return builder;
         }
     }
 }

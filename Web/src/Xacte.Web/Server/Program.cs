@@ -1,8 +1,8 @@
-using Microsoft.AspNetCore.ResponseCompression;
+using Xacte.Common.Hosting.Api.Extensions;
 
 namespace Xacte.Web
 {
-    public class Program
+    public static class Program
     {
         public static void Main(string[] args)
         {
@@ -23,17 +23,14 @@ namespace Xacte.Web
             else
             {
                 app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            app.UseXacteSecureConnection();
 
             app.UseBlazorFrameworkFiles();
             app.UseStaticFiles();
 
             app.UseRouting();
-
 
             app.MapRazorPages();
             app.MapControllers();

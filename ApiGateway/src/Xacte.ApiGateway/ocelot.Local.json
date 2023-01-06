@@ -1,32 +1,35 @@
 {
   "GlobalConfiguration": {
-    "BaseUrl": "https://api.xacte.local"
+    "BaseUrl": "https://localhost:9001"
   },
   "Routes": [
     {
       "Key": "PATIENTS",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "patient.xacte.local",
-          "Port": 443
+          "Host": "host.docker.internal",
+          "Port": 8100
         }
       ]
     },
     {
       "Key": "PATIENT",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "patient.xacte.local",
-          "Port": 443
+          "Host": "host.docker.internal",
+          "Port": 8100
         }
       ]
     },
     {
       "Key": "PATIENT_BILLING",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "patient.xacte.local",
-          "Port": 443
+          "Host": "host.docker.internal",
+          "Port": 8100
         }
       ]
     }

@@ -1,12 +1,83 @@
 # Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
 
 version: '3.4'
+name: xacte-environment-local
 
 services:
-  xacteapigateway:
-    image: xacteapigateway
-    build:
-      context: .
-      dockerfile: ApiGateway/src/Xacte.ApiGateway/Dockerfile
+  #################
+  # Web application
+  local-xacte.web.wasm:
+    container_name: xacte-web
+    image: par.petal.local/xacte/web/wasm:latest
+    # image: par.petal.local/xacte/web/wasm:local
+    # build:
+    #   context: .
+    #   dockerfile: Web/src/Xacte.Web/Server/Dockerfile
+    depends_on:
+      - local-xacte.api.gateway
     ports:
-      - 5066:5066
+      - 8000:80
+      - 9000:443
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Local
+      - ASPNETCORE_URLS=https://+;http://+
+      - ASPNETCORE_HTTPS_PORT=8000
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=xacte4ever
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    networks:
+      - my-shared-network
+    volumes:
+      - ~/.aspnet/https:/https:ro
+
+  #########
+  # Gateway
+  # Gateway has to communicate to downstreams via http on Docker because of this error
+  # https://forums.docker.com/t/the-remote-certificate-is-invalid-because-of-errors-in-the-certificate-chain-untrustedroot/120494/3
+  local-xacte.api.gateway:
+    container_name: xacte-gateway
+    image: par.petal.local/xacte/api/gateway:latest
+    # image: par.petal.local/xacte/api/gateway:local
+    # build:
+    #   context: .
+    #   dockerfile: ApiGateway/src/Xacte.ApiGateway/Dockerfile
+    depends_on:
+      - local-xacte.api.patient
+    ports:
+      - 8001:80
+      - 9001:443
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Local
+      - ASPNETCORE_URLS=https://+;http://+
+      - ASPNETCORE_HTTPS_PORT=9001
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=xacte4ever
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    networks:
+      - my-shared-network
+    volumes:
+      - ~/.aspnet/https:/https:ro
+  
+  #####
+  # Api
+  local-xacte.api.patient:
+    container_name: xacte-patient
+    image: par.petal.local/xacte/api/patient:latest
+    # image: par.petal.local/xacte/api/patient:local
+    # build:
+    #   context: .
+    #   dockerfile: Patient/src/Xacte.Patient.Api/Dockerfile
+    ports:
+      - 8100:80
+      - 9100:443
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Local
+      - ASPNETCORE_URLS=https://+;http://+
+      - ASPNETCORE_HTTPS_PORT=9100
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=xacte4ever
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    networks:
+      - my-shared-network
+    volumes:
+      - ~/.aspnet/https:/https:ro
+
+networks:
+  my-shared-network: {}

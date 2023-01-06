@@ -51,9 +51,7 @@ try
     app.UseXacteSwagger(app.Services);
     app.UseXacteRequestLocalization();
     app.UseXacteResponseCompression();
-
-    app.UseHttpsRedirection();
-    app.UseHsts();
+    app.UseXacteSecureConnection();
 
     app.UseAuthorization();
 
