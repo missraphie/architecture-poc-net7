@@ -19,6 +19,13 @@ namespace Xacte.Web
             if (app.Environment.IsDevelopment())
             {
                 app.UseWebAssemblyDebugging();
+                if (app.Environment.IsLocal())
+                {
+                    app.UseForwardedHeaders(new()
+                    {
+                        ForwardedHeaders = Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders.XForwardedFor | Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders.XForwardedProto
+                    });
+                }
             }
             else
             {

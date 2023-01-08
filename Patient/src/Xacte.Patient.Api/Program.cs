@@ -45,6 +45,13 @@ try
     if (app.Environment.IsDevelopment() || app.Environment.IsLocal())
     {
         app.UseDeveloperExceptionPage();
+        if (app.Environment.IsLocal())
+        {
+            app.UseForwardedHeaders(new()
+            {
+                ForwardedHeaders = Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders.XForwardedFor | Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders.XForwardedProto
+            });
+        }
     }
 
     app.UseXacteErrorHandling();

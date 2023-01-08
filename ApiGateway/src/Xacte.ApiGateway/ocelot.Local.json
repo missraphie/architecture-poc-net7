@@ -1,6 +1,6 @@
 {
   "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:9001"
+    "BaseUrl": "https://gateway.xacte.local:9001"
   },
   "Routes": [
     {
